@@ -64,3 +64,22 @@ Linux Cooked interface使用编译（venetX，OpenVZ）：
     
     #关闭tso
     ethtool -K 网卡名 tso off
+    
+    
+    
+    
+    运行看效果：
+./net_speeder eth0 "ip"
+
+要后台运行的话
+nohup ./net_speeder eth0 “ip” >/dev/null 2>&1 &
+
+最好是设成开机启动是吧：
+mkdir /usr/local/net_speeder/
+cp net_speeder /usr/local/net_speeder/net_speeder
+echo 'nohup /usr/local/net_speeder/net_speeder eth0 "ip" >/dev/null 2>&1 &' >> /etc/rc.local
+
+作者：shadowLK
+链接：https://www.jianshu.com/p/7b1a994563cb
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
